@@ -4,3 +4,7 @@ have no concern about being 32-bit or cross platform compatible.
 To compile a solution:
 
 gcc euler1.c -lm
+
+Often times after solving a solution I will implement the discussed solution
+just to see how it differsi with mine and to get a little bit of muscle 
+memory in case I see the problem again in some other situation.
