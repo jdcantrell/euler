@@ -1,0 +1,6 @@
+These programs were written on a 64-bit machine, and at this point in time
+have no concern about being 32-bit or cross platform compatible.
+
+To compile a solution:
+
+gcc euler1.c -lm
