@@ -1,4 +1,4 @@
-all: p1 p2 p3 p4 p5 p6 p7
+all: p1 p2 p3 p4 p5 p6 p7 p8
 
 p1: euler1.c
 	gcc euler1.c -lm -o p1
@@ -20,3 +20,6 @@ p6: euler6.c
 
 p7: euler7.c
 	gcc euler7.c -lm -o p7
+
+p8: euler8.c
+	gcc euler8.c -lm -o p8
