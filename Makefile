@@ -1,4 +1,4 @@
-all: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12
+all: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13
 
 p1: euler1.c
 	gcc euler1.c -lm -o p1
@@ -35,3 +35,6 @@ p11: euler11.c
 
 p12: euler12.c
 	gcc euler12.c -lm -o p12
+
+p13: euler13.c
+	gcc euler13.c -lm -o p13
