@@ -8,3 +8,5 @@ gcc euler1.c -lm
 Often times after solving a solution I will implement the discussed solution
 just to see how it differsi with mine and to get a little bit of muscle 
 memory in case I see the problem again in some other situation.
+
+Problem 15: is simple (2n choose n) for an n by n grid
