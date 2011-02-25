@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
+#define DIGITS 1000
+#define EON 255
+
 typedef struct big_int_struct {
     int negative;
-    int number[1000];
+    unsigned char number[DIGITS];
 } big_int;
 
 big_int bi_init(char* str) {
     big_int num;
     int j = 0;
-    
-    
     int i = 0;
-    for (i = 0; i < 1000; i ++) {
+    for (i = 0; i < DIGITS; i ++) {
         num.number[i] = 0;
     }
-    num.number[strlen(str)] = 255;
+    num.number[strlen(str)] = EON;
     for (i = strlen(str) - 1; i >= 0; i--) {
         //printf("Setting idx: %d to value %c,%d\n", j, str[i],i);
         num.number[j] = str[i] - 48;
@@ -26,8 +27,8 @@ big_int bi_init(char* str) {
 
 char* bi_get(big_int n) {
     int i = 0;
-    for(i = 0; i < 1000; i++) {
-        if (n.number[i] == 255) {
+    for(i = 0; i < DIGITS; i++) {
+        if (n.number[i] == EON) {
             break;
         }
     }
@@ -38,7 +39,7 @@ char* bi_get(big_int n) {
         //printf("Getting %d and setting to %d", n.number[j], i - j);
         s[i - j - 1] = 48 + n.number[j];
     }
-    s[i] = 0;
+    s[i] = '\0';
     return strdup(s);
 }
 
@@ -49,9 +50,9 @@ big_int bi_add(big_int a, big_int b) {
     int aFlag = 1;
     int bFlag = 1;
     //printf("A: %s, B: %s\n",bi_get(a),bi_get(b));
-    for(i = 0; i < 1000; i++) {
-        if (a.number[i] == 255) aFlag = 0;
-        if (b.number[i] == 255) bFlag = 0;
+    for(i = 0; i < DIGITS; i++) {
+        if (a.number[i] == EON) aFlag = 0;
+        if (b.number[i] == EON) bFlag = 0;
         
         if (aFlag && bFlag) {//both numbers have the current digit
             c.number[i] = a.number[i] + b.number[i] + carry;
@@ -65,17 +66,17 @@ big_int bi_add(big_int a, big_int b) {
         else {//we've looped over both a and b, so end our number
             if (carry) {
                 c.number[i] = carry;
-                c.number[i + 1] = 255;
+                c.number[i + 1] = EON;
             }
             else {
-                c.number[i] = 255;
+                c.number[i] = EON;
             }
             break;
         }
         //handle the carry digit
         carry = c.number[i] / 10;
         if (carry) {
-            c.number[i] = c.number[i] % 10;
+            c.number[i] = c.number[i] - (carry * 10);
         }
     }
     return c;
@@ -84,34 +85,34 @@ big_int bi_add(big_int a, big_int b) {
 big_int bi_mult(big_int a, big_int b) {
     big_int c = bi_init("0");
     int i, j, carry;
-    for (i = 0; i < 1000; i++) {
-        if (b.number[i] == 255) break;
+    for (i = 0; i < DIGITS; i++) {
+        if (b.number[i] == EON) break;
         carry = 0;
-        for(j = 0; j < 1000; j++) {
-            if (a.number[j] == 255) break;
+        for(j = 0; j < DIGITS; j++) {
+            if (a.number[j] == EON) break;
             //printf("Digit %d = %d * %d + %d\n",j+i, a.number[j], b.number[i],carry);
             c.number[j + i] = a.number[j] * b.number[i] + carry;
             carry = c.number[j + i] / 10;
             if (carry) {
-                c.number[j + i] = c.number[j + i] % 10;
+                c.number[j + i] = c.number[j + i] - (carry * 10);
             }
             
         }
         //handle any extra carry we might have
         int x = 0;
         while (carry) {
-            if (c.number[j + i + x] == 255) {
+            if (c.number[j + i + x] == EON) {
                 c.number[j + i + x] = 0;
             }
 
             c.number[j + i + x] += carry;
             carry = c.number[j + i + x] / 10;
             if (carry) {
-                c.number[j + i + x] = c.number[j + i + x] % 10;
+                c.number[j + i + x] = c.number[j + i + x] - (carry * 10);
             }
             x++;
         }
-        c.number[j + i + x] = 255;
+        c.number[j + i + x] = EON;
     }
     //printf("Final: %s\n", bi_get(c));
     return c;
@@ -121,7 +122,7 @@ big_int bi_mult(big_int a, big_int b) {
 //and never do this again
 int test_set_from_string() {
     big_int a = bi_init("500");
-    if (a.number[3] == 255 && a.number[2] ==5 && a.number[1] == 0 && a.number[0] == 0) {
+    if (a.number[3] == EON && a.number[2] ==5 && a.number[1] == 0 && a.number[0] == 0) {
         return 1;
     }
     printf("\nUnexpected Values: %d, %d, %d, %d\n", a.number[3], a.number[2], a.number[1], a.number[0]);
@@ -249,14 +250,14 @@ int main() {
     big_int a = bi_init("1");
     big_int two = bi_init("2");
     int i = 0;
-    for(i = 0; i < 1000; i++) {
+    for(i = 0; i < DIGITS; i++) {
         a = bi_mult(a, two);
     }
     printf("2**1000: %s\n", bi_get(a));
     
     int sum = 0;
-    for (i = 0; i < 1000; i++) {
-        if (a.number[i] == 255) {
+    for (i = 0; i < DIGITS; i++) {
+        if (a.number[i] == EON) {
             break;
         }
         sum += a.number[i];
