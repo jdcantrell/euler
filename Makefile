@@ -43,7 +43,7 @@ p14: euler14.c
 	gcc euler14.c -lm -o p14
 
 p16: euler16.c
-	gcc euler16.c -lm -o p16
+	gcc euler16.c big_int.c -lm -o p16
 
 p17: euler17.c
 	gcc euler17.c -lm -o p17
