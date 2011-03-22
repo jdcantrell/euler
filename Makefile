@@ -1,4 +1,4 @@
-all: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p16 p17 p18 p19 p67
+all: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p16 p17 p18 p19 p67 p20
 
 p1: euler1.c
 	gcc euler1.c -lm -o p1
@@ -54,5 +54,8 @@ p18: euler18.c
 p19: euler19.c
 	gcc euler19.c -lm -o p19
 	
+p20: euler20.c
+	gcc -g euler20.c big_int.c -lm -o p20
+
 p67: euler67.c
 	gcc euler67.c -lm -o p67
