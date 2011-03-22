@@ -18,6 +18,27 @@ big_int bi_init(char* str) {
     }
     return num;
 }
+void bi_set_int(big_int *n, int val) {
+    int i;
+
+    //not really needed since the EON should keep 
+    //use from reading incorrect data
+    for (i = 0; i < DIGITS; i ++) {
+        if ( (*n).number[i] != EON) (*n).number[i] = 0;
+        else {
+            (*n).number[i] = 0;
+            break;
+        }
+    }
+
+    i = 0;
+    while (val) {
+        (*n).number[i] = val % 10;
+        val = val / 10;
+        i++;
+    }
+    (*n).number[i] = EON;
+}
 
 char* bi_get(big_int n) {
     int i = 0;
@@ -84,8 +105,12 @@ big_int bi_mult(big_int a, big_int b) {
         carry = 0;
         for(j = 0; j < DIGITS; j++) {
             if (a.number[j] == EON) break;
-            //printf("Digit %d = %d * %d + %d\n",j+i, a.number[j], b.number[i],carry);
-            c.number[j + i] = a.number[j] * b.number[i] + carry;
+            if (c.number[j + i] == EON) {
+                c.number[j + i] = 0;
+                c.number[j + i + 1] = EON;
+            }
+            //printf("Digit %d =%d + %d * %d + %d\n",j+i, c.number[j + i], a.number[j], b.number[i],carry);
+            c.number[j + i] += a.number[j] * b.number[i] + carry;
             carry = c.number[j + i] / 10;
             if (carry) {
                 c.number[j + i] = c.number[j + i] - (carry * 10);
