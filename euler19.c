@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define SIZE 15
-
 int main() {
     int y, m, d, eom;
     int dayNumber = 1;
@@ -14,19 +12,23 @@ int main() {
             }
             if (m == 2) {
                 eom = 28;
+				//correct for leap year
+				//if our range was larger we'd need to add a case for
+				//leap year on a century non divisble by 400,
+				//but since that is not required it is left out
                 if (y % 4 == 0) {
                     eom = 29;
                 }
             }
-        
-            for(d = 1; d <= eom; d++) {
-                if (d == 1 && dayNumber % 7 == 0) {
-                    firstSundays++;
-                }
-                dayNumber++;
-            }
+
+			//we are on the first of a month
+			if (dayNumber % 7 == 0) {
+				firstSundays++;
+			}
+			//advance to the next first of the month
+			dayNumber+=eom;
         }
     }
-    printf("First Sundays: %d", firstSundays);
+    printf("First Sundays: %d\n", firstSundays);
     return;
 }
