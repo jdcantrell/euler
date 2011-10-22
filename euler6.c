@@ -9,7 +9,7 @@ int sum(num) {
     return (num * (num + 1)) / 2;
 }
 
-main() {
+int main() {
     int diff;
     int squares = sum_of_squares(100);
     int sumN = sum(100);

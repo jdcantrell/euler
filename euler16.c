@@ -30,6 +30,7 @@ int test_add_single() {
         return 1;
     }
     printf("\nUnexpected Value: %s\n", bi_get(bi_add(a,b)));
+    return 0;
 }
 
 
@@ -40,6 +41,7 @@ int test_add_double() {
         return 1;
     }
     printf("\nUnexpected Value: %s\n", bi_get(bi_add(a,b)));
+    return 0;
 }
 
 int test_add_two_size() {
@@ -49,6 +51,7 @@ int test_add_two_size() {
         return 1;
     }
     printf("\nUnexpected Value: %s\n", bi_get(bi_add(a,b)));
+    return 0;
 }
 
 int test_mult_single() {

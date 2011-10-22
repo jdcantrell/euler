@@ -35,7 +35,7 @@ int smarter_factor(long long num) {
 	while (num > 1 && f <= max_f) {
 		if (num % f == 0) {
 			last_f = f;
-			printf("Smart Factor found %d\n",f);
+			printf("Smart Factor found %lld\n",f);
 			while (num % f == 0) {
 				num = num / f;
 			}
@@ -49,7 +49,7 @@ int smarter_factor(long long num) {
 }
 
 
-main() {
+int main() {
 	int i;
 	long long f = 600851475143;
 	double d = 600851475143;

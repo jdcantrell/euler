@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-main() {
+int main() {
     int a = 0;
     int b = 0;
     int c = 0;

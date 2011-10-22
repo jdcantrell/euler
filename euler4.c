@@ -27,7 +27,7 @@ int is_palindrome(num) {
     return 0;
 }
 
-main() {
+int main() {
     int i, j, num, maxj, maxi;
     int max = 0;
     //this checks some numbers twice

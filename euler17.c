@@ -36,7 +36,7 @@ int main() {
             }
         }
         charCount += strlen(number);
-        printf("Word: %s len: %d\n", number, strlen(number));
+        printf("Word: %s len: %lu\n", number, strlen(number));
     }
     charCount += strlen("onethousand");
     printf("Length: %d\n", charCount);

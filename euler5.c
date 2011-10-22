@@ -17,7 +17,7 @@ int *euler_sieve(long long input, int *a) {
 	return a;
 }
 
-main() {
+int main() {
 	int i;
 	int prime_count = 10;
     int product = 1;

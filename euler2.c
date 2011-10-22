@@ -11,7 +11,7 @@ int fib(int x) {
 
 }
 
-main() {
+int main() {
     int loop = 1;
     long int sum = 0;
     int i = 3;
@@ -23,5 +23,5 @@ main() {
         }
         i += 3;
     }
-    printf("The sum of all even Fibonacci numbers below 4,000,000 is: %d\n", sum);
+    printf("The sum of all even Fibonacci numbers below 4,000,000 is: %ld\n", sum);
 }

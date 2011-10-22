@@ -49,7 +49,7 @@ int is_prime(int n) {
     return 1;
 }
 
-main() {
+int main() {
     //searchSize choosen purely on a good guess
 	int searchSize = 150000;
 	int a[searchSize]; 

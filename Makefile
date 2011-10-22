@@ -1,64 +1,64 @@
-all: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p16 p17 p18 p19 p67 p20 p21
+all: p001 p002 p003 p004 p005 p006 p007 p008 p009 p010 p011 p012 p013 p014 p016 p017 p018 p019 p067 p020 p021
 
-p1: euler1.c
-	gcc euler1.c -lm -o p1
+p001: euler1.c
+	clang euler1.c -lm -o p001
 
-p2: euler2.c
-	gcc euler2.c -lm -o p2
+p002: euler2.c
+	clang euler2.c -lm -o p002
 
-p3: euler3.c
-	gcc euler3.c -lm -o p3
+p003: euler3.c
+	clang euler3.c -lm -o p003
 
-p4: euler4.c
-	gcc euler4.c -lm -o p4
+p004: euler4.c
+	clang euler4.c -lm -o p004
 
-p5: euler5.c
-	gcc euler5.c -lm -o p5
+p005: euler5.c
+	clang euler5.c -lm -o p005
 	
-p6: euler6.c
-	gcc euler6.c -lm -o p6
+p006: euler6.c
+	clang euler6.c -lm -o p006
 
-p7: euler7.c
-	gcc euler7.c -lm -o p7
+p007: euler7.c
+	clang euler7.c -lm -o p007
 
-p8: euler8.c
-	gcc euler8.c -lm -o p8
+p008: euler8.c
+	clang euler8.c -lm -o p008
 
-p9: euler9.c
-	gcc euler9.c -lm -o p9
+p009: euler9.c
+	clang euler9.c -lm -o p009
 
-p10: euler10.c
-	gcc euler10.c -lm -o p10
+p010: euler10.c
+	clang euler10.c -lm -o p010
 
-p11: euler11.c
-	gcc euler11.c -lm -o p11
+p011: euler11.c
+	clang euler11.c -lm -o p011
 
-p12: euler12.c
-	gcc euler12.c -lm -o p12
+p012: euler12.c
+	clang euler12.c -lm -o p012
 
-p13: euler13.c
-	gcc euler13.c -lm -o p13
+p013: euler13.c
+	clang euler13.c -lm -o p013
 
-p14: euler14.c
-	gcc euler14.c -lm -o p14
+p014: euler14.c
+	clang euler14.c -lm -o p014
 
-p16: euler16.c
-	gcc euler16.c big_int.c -lm -o p16
+p016: euler16.c
+	clang euler16.c big_int.c -lm -o p016
 
-p17: euler17.c
-	gcc euler17.c -lm -o p17
+p017: euler17.c
+	clang euler17.c -lm -o p017
 	
-p18: euler18.c
-	gcc euler18.c -lm -o p18
+p018: euler18.c
+	clang euler18.c -lm -o p018
 	
-p19: euler19.c
-	gcc euler19.c -lm -o p19
+p019: euler19.c
+	clang euler19.c -lm -o p019
 	
-p20: euler20.c
-	gcc -g euler20.c big_int.c -lm -o p20
+p020: euler20.c
+	clang -g euler20.c big_int.c -lm -o p020
 
-p21: euler21.c
-	gcc -g euler21.c -lm -o p21
+p021: euler21.c
+	clang -g euler21.c -lm -o p021
 
-p67: euler67.c
-	gcc euler67.c -lm -o p67
+p067: euler67.c
+	clang euler67.c -lm -o p067

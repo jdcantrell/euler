@@ -30,5 +30,5 @@ int main() {
         }
     }
     printf("First Sundays: %d\n", firstSundays);
-    return;
+    return 0;
 }

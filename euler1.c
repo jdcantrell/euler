@@ -5,7 +5,7 @@ int SumDivisibleBy(int n) {
     return n * (p * (p + 1)) / 2;
 }
 
-main() {
+int main() {
     int i = 1;
     int m3 = 0;
     int m5 = 0;
