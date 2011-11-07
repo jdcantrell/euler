@@ -1,5 +1,8 @@
 all: p001 p002 p003 p004 p005 p006 p007 p008 p009 p010 p011 p012 p013 p014 p016 p017 p018 p019 p067 p020 p021
 
+clean:
+	rm -rf ./p0*
+
 p001: euler1.c
 	clang euler1.c -lm -o p001
 
